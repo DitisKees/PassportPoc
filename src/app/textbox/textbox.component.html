@@ -1,0 +1,17 @@
+<div class="moveable app">
+  <div class="container">
+    <h1>Change the Moveable targets by selecting it.</h1>
+    <p class="description">You can drag, resize and move targets and select them.</p>
+    <ngx-selecto #selecto dragContainer=".elements" [selectableTargets]='[".selecto-area .cube"]' [hitRate]='0'
+      [selectByClick]='true' [selectFromInside]='false' [toggleContinueSelect]='["shift"]' [ratio]='0'
+      (dragStart)="onDragStart($event)" (selectEnd)="onSelectEnd($event)"></ngx-selecto>
+    <ngx-moveable #moveable [draggable]='true' [resizable]="true" [snappable]="true" [target]='targets'
+      (clickGroup)="onClickGroup($event)" (drag)="onDrag($event)" (dragGroup)="onDragGroup($event)"
+      [snapDirections]="snapDirections" [elementSnapDirections]="snapDirections" [snapThreshold]="snapThreshold"
+      [elementGuidelines]="snappables" (resize)="onResize($event)"></ngx-moveable>
+    <div class="elements selecto-area" id="selecto1">
+      <div *ngFor="let num of cubes" class="cube cub{{num}}">{{num}}</div>
+    </div>
+    <div class="empty elements"></div>
+  </div>
+</div>
