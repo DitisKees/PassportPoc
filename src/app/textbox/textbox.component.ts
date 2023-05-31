@@ -18,8 +18,7 @@ export class TextboxComponent implements OnInit, AfterViewInit {
   snappables = [];
   snapDirections: any = { top: true, left: true, bottom: true, right: true };
   snapThreshold: any = 5;
-  //  verticalGuidelines: any = [50, 150, 250, 450, 550];
-  //  horizontalGuidelines: any = [0, 100, 200, 400, 500];
+  bounds: any = { left: 0, top: 0, right: 0, bottom: 0, position: 'css' };
   ngOnInit() {
     const cubes = [];
 
@@ -28,6 +27,10 @@ export class TextboxComponent implements OnInit, AfterViewInit {
       this.snappables.push('.cub' + i);
     }
     this.cubes = cubes;
+  }
+  public addCube() {
+    this.cubes.push(this.cubes.length);
+    this.snappables.push('.cub' + this.cubes.length);
   }
   onClickGroup(e) {
     this.selecto.clickTarget(e.inputEvent, e.inputTarget);
