@@ -65,10 +65,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "PassportPoc:build:production"
+              "buildTarget": "PassportPoc:build:production"
             },
             "development": {
-              "browserTarget": "PassportPoc:build:development"
+              "buildTarget": "PassportPoc:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -76,7 +76,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "PassportPoc:build"
+            "buildTarget": "PassportPoc:build"
           }
         },
         "test": {
@@ -100,5 +100,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
